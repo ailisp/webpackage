@@ -202,6 +202,7 @@ func (s *Signer) signatureHeaderValue(e *Exchange) (string, error) {
 		return "", fmt.Errorf("signedexchange: cert-url with disallowed scheme %q. cert-url must have a scheme of \"https\" or \"data\".", s.CertUrl.Scheme)
 	}
 
+	// The prototype should call POST localhost:3001 sign to sign the exchange
 	sig, err := s.sign(e)
 	if err != nil {
 		return "", err
